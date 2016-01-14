@@ -1,4 +1,6 @@
-ifneq ($(TARGET_ARCH_ABI),armeabi-v7a)
+# ARMEABI-v7a
+# if $TARGET_ARCH_ABI and 'armeabi-v7a' is different, the text-if-true is effective
+#ifneq ($(TARGET_ARCH_ABI),armeabi-v7a) 
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
@@ -16,7 +18,7 @@ LOCAL_SRC_FILES := \
 	jquant2.c jutils.c jmemmgr.c \
 	jmem-android.c
 
-# the assembler is only for the ARM version, don't break the Linux sim
+# The assembler is only for the ARM version, don't break the Linux sim
 ifneq ($(TARGET_ARCH),arm)
 ANDROID_JPEG_NO_ASSEMBLER := true
 endif
@@ -38,4 +40,4 @@ LOCAL_MODULE:= jpeg
 
 include $(BUILD_STATIC_LIBRARY)
 
-endif
+#endif
